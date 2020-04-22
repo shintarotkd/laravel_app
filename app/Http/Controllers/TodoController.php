@@ -59,7 +59,7 @@ class TodoController extends Controller
         $input['user_id'] = Auth::id();  // 追記
         $this->todo->fill($input)->save();
         // dd($this->todo->fill($input)->save());
-        return redirect()->to('todo');
+        return redirect()->route('todo.index');
     }
     //引数のRequest $requestはRequestクラスのインスタンスを$requestに代入している。フォームで渡された値。
     //
@@ -100,7 +100,7 @@ class TodoController extends Controller
         // dd($this->todo->find($id));
         $this->todo->find($id)->fill($input)->save();
         // dd();
-        return redirect()->to('todo');
+        return redirect()->route('todo.index');
     }
 
     /**
@@ -114,7 +114,7 @@ class TodoController extends Controller
         //
         $this->todo->find($id)->delete();
         // dd(redirect()->to('todo'));
-        return redirect()->to('todo');
+        return redirect()->route('todo.index');
     }
 
 }
